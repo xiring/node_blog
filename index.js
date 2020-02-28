@@ -1,5 +1,6 @@
-const path = require('path');
-const expressEdge = require('express-edge');
+//const path = require('path');
+//const expressEdge = require('express-edge');
+const { config, engine } = require('express-edge');
 const express = require('express');
 const edge = require("edge.js");
 const mongoose = require('mongoose');
@@ -41,7 +42,7 @@ app.use(expressSession({
 app.use(fileUpload());
 
 app.use(express.static('public'));
-app.use(expressEdge.engine);
+app.use(engine);
 
 app.set('views', __dirname + '/views');
 app.use('*', (req, res, next) => {
